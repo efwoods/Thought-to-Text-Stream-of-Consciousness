@@ -1,0 +1,12 @@
+services:
+  thought-to-text-api:
+    container_name: thought-to-text-api
+    image: evdev3/thought-to-text-api:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    restart: unless-stopped
+    env_file:
+      - .env

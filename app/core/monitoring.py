@@ -19,7 +19,7 @@ def get_or_create_metric(name, description, metric_type="counter", labelnames="N
 health_requests = get_or_create_metric("health_requests_total", "Total health check requests")
 websocket_url_requests = get_or_create_metric("websocket_url_requests_total", "Total WebSocket URL requests")
 active_websockets = get_or_create_metric("active_websockets", "Number of active WebSocket connections", "gauge")
-transcriptions_processed = get_or_create_metric("transcriptions_processed_total", "Total transcriptions processed")
+raw_thoughts_processed = get_or_create_metric("raw_thoughts_processed_total", "Total raw thoughts processed")
 websocket_errors = get_or_create_metric("websocket_errors_total", "Total WebSocket errors")
 
 class Metrics:
@@ -27,7 +27,7 @@ class Metrics:
         self.health_requests = health_requests
         self.websocket_url_requests = websocket_url_requests
         self.active_websockets = active_websockets
-        self.transcriptions_processed = transcriptions_processed
+        self.raw_thoughts_processed = raw_thoughts_processed
         self.websocket_errors = websocket_errors
 
 metrics = Metrics()
