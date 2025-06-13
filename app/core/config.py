@@ -23,6 +23,14 @@ class Settings(BaseSettings):
     # FASTAPI / WebSocket PORTS
     FASTAPI_PORT: int
     WEBSOCKET_PORT: int
+    NGROK_AUTH_TOKEN: str
+    SECRET_KEY: str
+
+    # Github
+    GITHUB_TOKEN: str
+    GITHUB_GIST_ID: str
+    VITE_GITHUB_FETCH_URL_ROOT: str
+    VITE_GITHUB_GIST_FILENAME: str
 
     # Torch
     DEVICE: str = "cuda" if torch.cuda.is_available() else "cpu"
