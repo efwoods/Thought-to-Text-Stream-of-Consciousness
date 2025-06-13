@@ -4,28 +4,28 @@ import torch
 
 class Settings(BaseSettings):
     # PostgreSQL
+    POSTGRES_DB: str
+    POSTGRES_USER: str
+    POSTGRES_PASSWORD: str
     POSTGRES_HOST: str  # no default
-    POSTGRES_PORT: int = 5432
-
+    POSTGRES_PORT: int 
+   
     # MongoDB
     MONGO_DB: str
     MONGO_HOST: str
-    MONGO_PORT: int = 27017
+    MONGO_PORT: int
 
     # Redis
     REDIS_HOST: str
-    REDIS_PORT: int = 6379
+    REDIS_PORT: int
+    REDIS_PASSWORD: str
 
-    # Ngrok / WebSocket
-    FASTAPI_PORT: int = 8000
-    WEBSOCKET_PORT: int = 8000
+    # FASTAPI / WebSocket PORTS
+    FASTAPI_PORT: int
+    WEBSOCKET_PORT: int
 
     # Torch
     DEVICE: str = "cuda" if torch.cuda.is_available() else "cpu"
-
-    # Transcription
-    SAMPLE_RATE: int = 16000
-    CHUNK_DURATION: int = 5
 
     class Config:
         env_file = ".env"

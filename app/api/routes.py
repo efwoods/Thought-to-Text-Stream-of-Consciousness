@@ -4,7 +4,6 @@ from core.logging import logger
 from core.config import settings
 import json
 
-
 router = APIRouter()
 
 @router.websocket("/ws")

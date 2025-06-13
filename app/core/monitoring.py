@@ -21,6 +21,7 @@ websocket_url_requests = get_or_create_metric("websocket_url_requests_total", "T
 active_websockets = get_or_create_metric("active_websockets", "Number of active WebSocket connections", "gauge")
 raw_thoughts_processed = get_or_create_metric("raw_thoughts_processed_total", "Total raw thoughts processed")
 websocket_errors = get_or_create_metric("websocket_errors_total", "Total WebSocket errors")
+metric_requests = get_or_create_metric("metric_requests_total", "Total metric requests")
 
 class Metrics:
     def __init__(self):
@@ -29,5 +30,6 @@ class Metrics:
         self.active_websockets = active_websockets
         self.raw_thoughts_processed = raw_thoughts_processed
         self.websocket_errors = websocket_errors
+        self.metric_requests = metric_requests
 
 metrics = Metrics()

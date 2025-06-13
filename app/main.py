@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request
-from fastapi.middleware.cors import CORSMiddleWare
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse, Response
 import uvicorn
 from prometheus_client import generate_latest, CONTENT_TYPE_LATEST
@@ -25,7 +25,7 @@ app = FastAPI(title="Thought-to-Text-Stream-of-Consciousness", root_path="/thoug
 
 # CORS Middleware
 app.add_middleware(
-    CORSMiddleWare,
+    CORSMiddleware,
     allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
@@ -46,7 +46,7 @@ async def health():
 
 @app.get("/metrics")
 async def metrics_endpoint(request: Request):
-    metrics.metrics_requests.inc()
+    metrics.metric_requests.inc()
     return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)
 
 if __name__ == "__main__":
